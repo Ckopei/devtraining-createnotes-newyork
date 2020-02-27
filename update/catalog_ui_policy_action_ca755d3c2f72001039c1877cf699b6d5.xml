@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="INSERT_OR_UPDATE">
+        <catalog_item display_value="ASC Office 365">6b038df42f32001039c1877cf699b6c8</catalog_item>
+        <catalog_variable>IO:8e3d8d302f72001039c1877cf699b6d7</catalog_variable>
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field/>
+        <mandatory>ignore</mandatory>
+        <order>100</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-03 18:00:17</sys_created_on>
+        <sys_id>ca755d3c2f72001039c1877cf699b6d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>caller</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_ca755d3c2f72001039c1877cf699b6d5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-03 18:00:17</sys_updated_on>
+        <table/>
+        <ui_policy display_value="test UI policy">8015d53c2f72001039c1877cf699b642</ui_policy>
+        <variable>caller</variable>
+        <variable_set/>
+        <visible>true</visible>
+    </catalog_ui_policy_action>
+</record_update>

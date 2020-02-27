@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="ldap_server_config">
+    <ldap_server_config action="DELETE">
+        <active>true</active>
+        <attributes/>
+        <authenticate>true</authenticate>
+        <connect_timeout>10</connect_timeout>
+        <dn>cn=read-only-admin,dc=example,dc=com</dn>
+        <dn_field/>
+        <listen_interval>5</listen_interval>
+        <listener>true</listener>
+        <map/>
+        <mid_server/>
+        <name>Test1</name>
+        <paging>true</paging>
+        <password>MEyi3jQvb+N7MaSa+EyjGA==</password>
+        <rdn/>
+        <read_timeout>30</read_timeout>
+        <server_url/>
+        <ssl>false</ssl>
+        <sys_class_name>ldap_server_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-03 19:09:18</sys_created_on>
+        <sys_id>d155693c2fb2001039c1877cf699b6f2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Test1</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>ldap_server_config_d155693c2fb2001039c1877cf699b6f2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-03 19:09:18</sys_updated_on>
+        <system_id>app131147.ycg3.service-now.com:dev95126001</system_id>
+        <vendor>active_directory</vendor>
+    </ldap_server_config>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</application>
+        <file_path/>
+        <instance_id>8c9bd4d1dbdd885052dd2f17d49619ae</instance_id>
+        <instance_name>dev95126</instance_name>
+        <name>ldap_server_config_d155693c2fb2001039c1877cf699b6f2</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="ldap_server_config"><ldap_server_config action="INSERT_OR_UPDATE"><active>true</active><attributes/><authenticate>true</authenticate><connect_timeout>10</connect_timeout><dn>cn=read-only-admin,dc=example,dc=com</dn><dn_field/><listen_interval>5</listen_interval><listener>true</listener><map/><mid_server/><name>Test1</name><paging>true</paging><password>MEyi3jQvb+N7MaSa+EyjGA==</password><rdn/><read_timeout>30</read_timeout><server_url/><ssl>false</ssl><sys_class_name>ldap_server_config</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-02-03 19:09:18</sys_created_on><sys_id>d155693c2fb2001039c1877cf699b6f2</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Test1</sys_name><sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package><sys_policy/><sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope><sys_update_name>ldap_server_config_d155693c2fb2001039c1877cf699b6f2</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-02-03 19:09:18</sys_updated_on><system_id>app131147.ycg3.service-now.com:dev95126001</system_id><vendor>active_directory</vendor></ldap_server_config></record_update>]]></payload>
+        <payload_hash>-1939138206</payload_hash>
+        <record_name>Test1</record_name>
+        <reverted_from/>
+        <source>b3a72af32f66001039c1877cf699b617</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-03 19:09:18</sys_created_on>
+        <sys_id>6155693c2fb2001039c1877cf699b6f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1700c74fe050000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-03 19:09:18</sys_updated_on>
+        <type>LDAP Server</type>
+        <update_guid>a955693c9cb200103e0e5a087f9624f3</update_guid>
+        <update_guid_history>a955693c9cb200103e0e5a087f9624f3:-1939138206</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Test1">66d5617c2fb2001039c1877cf699b6fb</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-03 19:11:34</sys_created_on>
+        <sys_db_object display_value="" name="ldap_server_config">ldap_server_config</sys_db_object>
+        <sys_id>29c63c1181224369ba05b07ac6c646d1</sys_id>
+        <sys_metadata>d155693c2fb2001039c1877cf699b6f2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Test1</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_scope_delete display_value="">64daa03572704d49a928bf08a985d6f9</sys_scope_delete>
+        <sys_update_name>ldap_server_config_d155693c2fb2001039c1877cf699b6f2</sys_update_name>
+        <sys_update_version display_value="ldap_server_config_d155693c2fb2001039c1877cf699b6f2">6155693c2fb2001039c1877cf699b6f4</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-03 19:11:34</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
