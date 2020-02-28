@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function($rootScope,$scope) {
+        <client_script><![CDATA[function(spUtil,$rootScope,$scope) {
 	/* widget controller */
 	var c = this;
+	spUtil.addInfoMessage('testing testing')
 	c.selectItem = function(idx) {
 		var id = c.data.notes[idx].sys_id;
 		console.log('Note ID: ' + id);
+		//assign noteID as property to rootScope so we can access it in the other widget.
 		$rootScope.noteID = id;
+		//ask Prins why we'd send a string with an event and how we access it.
 		$rootScope.$emit('selectNote', id);
 	}
+	/* event listener that just calls the server and automatically replaces
+	the current options and data from new server response, so that my notes uodate
+	in real time.*/
+	
+	$rootScope.$on('updatedNote', function (event,data){
+		c.server.refresh().then(function(r){
+			return;
+		})
+	})
 }]]></client_script>
         <controller_as>c</controller_as>
         <css/>
@@ -30,15 +42,16 @@
 	//create an array to populate with notes
 	data.notes = [];
 	var noteGR = new GlideRecord('x_snc_createnotes_note');
-	noteGR.addQuery('user', gs.getUser().getID());
 	noteGR.orderByDesc('sys_created_on');
 	noteGR.query();
 	while (noteGR.next()) {
 		var noteObj = {};
 		//use service portal helper method to get some display values
+		//getRecordDisplayValues are copied to the object (first arg). this method returns nothing
+		//and as such wont log.
 		$sp.getRecordDisplayValues(noteObj, noteGR, 'number,title,sys_id');
 		//get the first 20 characters of the description
-		noteObj.note = noteGR.getValue('note').slice(0,20);
+		noteObj.note = noteGR.getValue('note').slice(0,35);
 		//push the populated obj into the array
 		data.notes.push(noteObj);
 	}
@@ -48,14 +61,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-02-04 20:58:33</sys_created_on>
         <sys_id>1be74f412ff6001039c1877cf699b656</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>Notes List</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_1be74f412ff6001039c1877cf699b656</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-02-27 19:33:54</sys_updated_on>
+        <sys_updated_on>2020-02-28 15:01:47</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default">
   <div class="panel-heading clearfix">
     <h3 class="panel-title pull-left">
@@ -63,6 +76,8 @@
     </h3>
   </div>
   <div class="list-group">
+    <!-- $index is used for ng-click='c.selectItem($index)' because ng-repeat is treated as a for loop, and $index will just give it
+it's current iteration number -->
     <a class="list-group-item" ng-click='c.selectItem($index)' ng-repeat="note in data.notes">
       <h4 class="list-group-item-heading">
         {{note.title}}

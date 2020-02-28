@@ -4,18 +4,25 @@
         <client_script><![CDATA[function($scope,$rootScope) {
 	/* widget controller */
 	var c = this;
-	
+
+	//function to post a custom object to the server, which updates the record. 
+	//when the notes are changed. triggered by angular directive ng-change.
 	c.updateNote = function(updateType) {
-		c.server.get({
-			action: 'updateNote',
-			noteID: c.data.noteID,
-			noteBody: c.data.note,
-			noteTitle: c.data.title
-		}).then(function(r) {
-		});
+		if (c.data.title && c.data.note !== ''){
+			c.server.get({
+				action: 'updateNote',
+				noteID: c.data.noteID,
+				noteBody: c.data.note,
+				noteTitle: c.data.title
+			}).then(function(r) {
+				//after we update the note, we propogate an event that causes the other widget
+				//to get current data from the table so it changes in real time.
+				$rootScope.$emit('updatedNote');
+			});
+		}
 	}
 
-
+	//event listener that gets the note and puts it in it's editable body.
 	$rootScope.$on('selectNote', function(event,data) {
 		c.server.get({
 			action: 'getNote',
@@ -50,6 +57,7 @@
 		if (note.get(input.noteID)) {
 			if (input.action == 'getNote') {
 				data.note = {};
+				//see other widget for full explanation of server side code.
 				$sp.getRecordValues(data.note, note, "title, note, sys_id");
 			} else if (input.action == 'updateNote') { 
 				note.title = input.noteTitle; 
@@ -64,24 +72,24 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-02-04 20:59:52</sys_created_on>
         <sys_id>363887c12ff6001039c1877cf699b6d3</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>Notes Body</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_363887c12ff6001039c1877cf699b6d3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-02-27 20:00:22</sys_updated_on>
+        <sys_updated_on>2020-02-27 21:32:54</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default" ng-show="c.data.noteID">
   <div class="panel-heading clearfix">
     <div class="row">
       <div class="col-md-12">
-        <input class="form-control" id="note-title" ng-model="c.data.title" ng-change="c.updateNote('title')" ng-model-options="{debounce: 1000}"/>
+        <input class="form-control" id="note-title" ng-model="c.data.title" ng-change="c.updateNote('title')" ng-model-options="{debounce: 2000}"/>
       </div>
     </div>
   </div>
   <div class="panel-body">
-    <textarea class="form-control" id="note-body" ng-model="c.data.note" ng-change="c.updateNote('body')" ng-model-options="{debounce: 1000}" ></textarea>
+    <textarea class="form-control" id="note-body" ng-model="c.data.note" ng-change="c.updateNote('body')" ng-model-options="{debounce: 2000}" ></textarea>
   </div>
 </div>]]></template>
     </sp_widget>
